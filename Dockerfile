@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y curl wget git vim
 RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
 RUN bash Mambaforge-Linux-x86_64.sh -b
 
-RUN mamba install python cuda cudatoolkit rapids pytorch torchvision torchaudio pyg jupyter pandas -y -n base -c rapidsai -c nvidia -c pytorch -c pyg -c conda-forge
+# RUN mamba install python cuda cudatoolkit rapids pytorch torchvision torchaudio pyg jupyter pandas -y -n base -c rapidsai -c nvidia -c pytorch -c pyg -c conda-forge
 
 # RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
 # RUN bash ~/miniconda.sh -b -p $HOME/miniconda
