@@ -8,7 +8,7 @@ RUN bash Mambaforge-Linux-x86_64.sh -b
 
 RUN /root/mambaforge/bin/mamba init
 
-RUN mamba install python cuda cudatoolkit rapids pytorch torchvision torchaudio pyg jupyter pandas -y -n base -c rapidsai -c nvidia -c pytorch -c pyg -c conda-forge
+RUN /root/mambaforge/bin/mamba install python cuda cudatoolkit rapids pytorch torchvision torchaudio pyg jupyter pandas -y -n base -c rapidsai -c nvidia -c pytorch -c pyg -c conda-forge
 
 # RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
 # RUN bash ~/miniconda.sh -b -p $HOME/miniconda
