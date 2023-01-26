@@ -14,6 +14,6 @@ FROM tiagopeixoto/graph-tool:latest
 
 # RUN /root/mambaforge/bin/mamba install graph-tool python-igraph networkx jupyter scipy numpy matplotlib -y -n base -c conda-forge
 
-RUN curl -fsSL https://code-server.dev/install.sh | sh
+# RUN curl -fsSL https://code-server.dev/install.sh | sh
 
-RUN code-server --install-extension ms-python.python
+# RUN code-server --install-extension ms-python.python
