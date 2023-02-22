@@ -1,5 +1,5 @@
 # FROM ubuntu
-FROM nvcr.io/nvidia/pytorch:23.01-py3
+FROM nvcr.io/nvidia/pytorch:22.08-py3
 
 RUN apt-get update \
 	&& apt-get install -y \
