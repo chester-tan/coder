@@ -1,5 +1,6 @@
 FROM ubuntu
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
 	&& apt-get install -y \
 	curl \
@@ -9,8 +10,8 @@ RUN apt-get update \
 	wget \
 	htop \
 	zip \
-	expect
-	# && rm -rf /var/lib/apt/lists/*
+	expect \
+	&& rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
 RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
