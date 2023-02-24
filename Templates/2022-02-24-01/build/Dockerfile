@@ -4,14 +4,13 @@ RUN apt-get update \
 	&& apt-get install -y \
 	curl \
 	git \
-	golang \
 	sudo \
 	vim \
 	wget \
 	htop \
 	zip \
-	expect \
-	&& rm -rf /var/lib/apt/lists/*
+	expect
+	# && rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
 RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
