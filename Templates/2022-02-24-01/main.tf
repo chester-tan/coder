@@ -109,6 +109,7 @@ resource "docker_image" "main" {
 }
 
 resource "docker_container" "workspace" {
+  gpus  = "all"
   count = data.coder_workspace.me.start_count
   image = docker_image.main.name
   # Uses lower() to avoid Docker restriction on container names.
