@@ -11,7 +11,6 @@ RUN apt-get update \
 	htop \
 	zip \
 	expect \
-	libnuma-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
@@ -51,3 +50,7 @@ RUN /home/${USER}/miniconda/bin/conda create --name default -y \
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	pathpy
 
+RUN sudo apt-get update \
+	&& sudo apt-get install -y \
+	libnuma-dev \
+	&& rm -rf /var/lib/apt/lists/*
