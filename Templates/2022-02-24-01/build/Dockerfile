@@ -25,4 +25,25 @@ RUN expect -c 'spawn bash -c "curl -fsSL https://install.julialang.org | sh"; ex
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/miniconda.sh
 RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
 RUN /home/${USER}/miniconda/bin/conda init
-RUN conda create --name latest -y -c conda-forge networkx jupyter scipy numpy pandas matplotlib 
+RUN /home/${USER}/miniconda/bin/conda create --name default -y \
+	-c rapidsai \
+	-c pytorch \
+	-c nvidia \
+	-c pyg \
+	-c conda-forge \ 
+	python=3.10 \
+	cuda cudatoolkit \
+	pytorch torchvision torchaudio pytorch-cuda \
+	captum \
+	pyg \
+	rapids=23.02 \
+	pathpy \
+	networkx \ 
+	graph-tool \
+	python-igraph \
+	jupyter \
+	scipy \
+	numpy \
+	pandas \
+	matplotlib \
+	seaborn
