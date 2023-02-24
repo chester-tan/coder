@@ -11,6 +11,7 @@ RUN apt-get update \
 	htop \
 	zip \
 	expect \
+	libnuma-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
