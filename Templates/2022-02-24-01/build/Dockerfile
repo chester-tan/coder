@@ -24,5 +24,5 @@ RUN expect -c 'spawn bash -c "curl -fsSL https://install.julialang.org | sh"; ex
 
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/miniconda.sh
 RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
-RUN source /home/ubuntu/miniconda/etc/profile.d/conda.sh && conda init
+RUN source /home/${USER}/miniconda/etc/profile.d/conda.sh && conda init
 RUN conda create --name latest -y -c conda-forge networkx jupyter scipy numpy pandas matplotlib 
