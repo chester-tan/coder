@@ -37,7 +37,6 @@ RUN /home/${USER}/miniconda/bin/conda create --name default -y \
 	captum \
 	pyg \
 	rapids=23.02 \
-	pathpy \
 	networkx \ 
 	graph-tool \
 	python-igraph \
@@ -47,3 +46,7 @@ RUN /home/${USER}/miniconda/bin/conda create --name default -y \
 	pandas \
 	matplotlib \
 	seaborn
+
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
+	pathpy
+
