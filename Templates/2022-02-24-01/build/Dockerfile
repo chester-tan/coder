@@ -1,5 +1,4 @@
-# FROM ubuntu
-FROM nvcr.io/nvidia/pytorch:22.08-py3
+FROM ubuntu
 
 RUN apt-get update \
 	&& apt-get install -y \
@@ -9,6 +8,9 @@ RUN apt-get update \
 	sudo \
 	vim \
 	wget \
+	htop \
+	zip \
+	expect \
 	&& rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
@@ -17,3 +19,9 @@ RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
 	&& chmod 0440 /etc/sudoers.d/${USER}
 USER ${USER}
 WORKDIR /home/${USER}
+
+RUN expect -c 'spawn bash -c "curl -fsSL https://install.julialang.org | sh"; expect "Proceed"; send -- "\r"; expect eof'
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/miniconda.sh
+RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
+
