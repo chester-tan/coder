@@ -53,4 +53,4 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 RUN sudo apt-get update \
 	&& sudo apt-get install -y \
 	libnuma-dev \
-	&& rm -rf /var/lib/apt/lists/*
+	&& sudo rm -rf /var/lib/apt/lists/*
