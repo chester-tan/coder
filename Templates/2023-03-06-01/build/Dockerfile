@@ -50,7 +50,7 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	captum \
-	torchdyn \
+	torchdyn
 
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	pathpy \
