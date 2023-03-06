@@ -55,7 +55,7 @@ RUN /home/${USER}/miniconda/bin/conda create --name default -y \
 # 	pandas \
 # 	seaborn
 
-RUN pip install \
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	"absl-py" \
 	"graph-nets>=1.1" \
 	"tensorflow>=1.15,<2" \
