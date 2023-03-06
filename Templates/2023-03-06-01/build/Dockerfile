@@ -55,6 +55,7 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	networkx \
 	igraph \
 	captum \
+	torchdyn \
 	jupyter \
 	scipy \
 	numpy \
