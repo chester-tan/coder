@@ -50,6 +50,13 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	torchdyn
 
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
+	networkx \
+	jupyter \
+	scipy \
+	pandas \
+	seaborn
+
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	absl-py \
 	graph-nets>=1.1 \
 	tensorflow>=1.15,<2 \
@@ -60,9 +67,3 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	dm-tree \
 	matplotlib
 
-RUN /home/${USER}/miniconda/envs/default/bin/pip install \
-	networkx \
-	jupyter \
-	scipy \
-	pandas \
-	seaborn
