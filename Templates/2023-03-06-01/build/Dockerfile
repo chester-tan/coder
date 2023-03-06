@@ -28,25 +28,36 @@ RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
 RUN /home/${USER}/miniconda/bin/conda init
 RUN /home/${USER}/miniconda/bin/conda create --name default -y \
 	-c rapidsai \
-	-c pytorch \
-	-c nvidia \
-	-c pyg \
 	-c conda-forge \ 
+	-c nvidia/label/cuda-11.6.2 \
 	python=3.10 \
 	cuda cudatoolkit \
-	pytorch torchvision torchaudio pytorch-cuda \
-	captum \
-	pyg \
 	rapids=23.02 \
-	networkx \ 
-	graph-tool \
-	python-igraph \
+	graph-tool
+
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
+	torch \
+	torchvision \
+	torchaudio \
+	--extra-index-url https://download.pytorch.org/whl/cu116
+
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
+	pyg_lib \
+	torch_scatter \
+	torch_sparse \ 
+	torch_cluster \
+	torch_spline_conv \
+	torch_geometric \
+	-f https://data.pyg.org/whl/torch-1.13.1+cu116.html
+
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
+	pathpy \
+	networkx \
+	igraph \
+	captum \
 	jupyter \
 	scipy \
 	numpy \
 	pandas \
 	matplotlib \
 	seaborn
-
-RUN /home/${USER}/miniconda/envs/default/bin/pip install \
-	pathpy
