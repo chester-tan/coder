@@ -59,7 +59,7 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	"absl-py" \
 	"graph-nets>=1.1" \
-	"tensorflow>=1.15,<2" \
+	"tensorflow-gpu>=1.15,<2" \
 	"numpy" \
 	"dm-sonnet<2" \
 	"tensorflow_probability<0.9" \
