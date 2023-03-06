@@ -27,8 +27,8 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
 RUN /home/${USER}/miniconda/bin/conda init
 RUN /home/${USER}/miniconda/bin/conda create --name default -y \
-	-c nvidia/label/cuda-11.6.2 \
 	-c conda-forge \ 
+	-c nvidia/label/cuda-11.7.1 \
 	python=3.10 \
 	cuda cudatoolkit \
 	graph-tool
@@ -37,7 +37,7 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	torch \
 	torchvision \
 	torchaudio \
-	--extra-index-url https://download.pytorch.org/whl/cu116
+	--extra-index-url https://download.pytorch.org/whl/cu117
 
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	pyg_lib \
@@ -46,14 +46,16 @@ RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	torch_cluster \
 	torch_spline_conv \
 	torch_geometric \
-	-f https://data.pyg.org/whl/torch-1.13.1+cu116.html
+	-f https://data.pyg.org/whl/torch-1.13.1+cu117.html
+
+RUN /home/${USER}/miniconda/envs/default/bin/pip install \
+	captum \
+	torchdyn \
 
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 	pathpy \
 	networkx \
 	igraph \
-	captum \
-	torchdyn \
 	jupyter \
 	scipy \
 	numpy \
