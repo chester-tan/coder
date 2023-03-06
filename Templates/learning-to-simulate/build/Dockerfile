@@ -1,5 +1,7 @@
 FROM tensorflow/tensorflow:1.15.5-gpu-py3-jupyter
 
+RUN pip install -U pip
+
 RUN pip install \
 	"absl-py" \
 	"graph-nets>=1.1" \
