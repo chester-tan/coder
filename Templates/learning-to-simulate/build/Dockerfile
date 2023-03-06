@@ -28,9 +28,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
 RUN /home/${USER}/miniconda/bin/conda init
 RUN /home/${USER}/miniconda/bin/conda create --name default -y \
-	-c nvidia/label/cuda-10.0 \
-	python=3.7 \
-	cuda cudatoolkit
+	python=3.7
 
 # RUN /home/${USER}/miniconda/envs/default/bin/pip install \
 # 	torch \
@@ -60,7 +58,7 @@ RUN /home/${USER}/miniconda/bin/conda create --name default -y \
 RUN pip install \
 	"absl-py" \
 	"graph-nets>=1.1" \
-	"tensorflow-gpu>=1.15,<2" \
+	"tensorflow>=1.15,<2" \
 	"numpy" \
 	"dm-sonnet<2" \
 	"tensorflow_probability<0.9" \
