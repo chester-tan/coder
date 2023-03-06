@@ -1,19 +1,19 @@
 # FROM ubuntu
 FROM tensorflow/tensorflow:1.15.5-gpu-py3-jupyter
 
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
-	&& apt-get install -y \
-	curl \
-	git \
-	sudo \
-	vim \
-	wget \
-	htop \
-	zip \
-	expect \
-	libnuma-dev \
-	&& rm -rf /var/lib/apt/lists/*
+# ENV DEBIAN_FRONTEND=noninteractive
+# RUN apt-get update \
+# 	&& apt-get install -y \
+# 	curl \
+# 	git \
+# 	sudo \
+# 	vim \
+# 	wget \
+# 	htop \
+# 	zip \
+# 	expect \
+# 	libnuma-dev \
+# 	&& rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
 RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
