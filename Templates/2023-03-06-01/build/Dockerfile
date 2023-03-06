@@ -27,12 +27,10 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash /home/${USER}/miniconda.sh -b -p /home/${USER}/miniconda
 RUN /home/${USER}/miniconda/bin/conda init
 RUN /home/${USER}/miniconda/bin/conda create --name default -y \
-	-c rapidsai \
-	-c conda-forge \ 
 	-c nvidia/label/cuda-11.6.2 \
+	-c conda-forge \ 
 	python=3.10 \
 	cuda cudatoolkit \
-	rapids=23.02 \
 	graph-tool
 
 RUN /home/${USER}/miniconda/envs/default/bin/pip install \
