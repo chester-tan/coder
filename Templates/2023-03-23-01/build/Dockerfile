@@ -67,6 +67,7 @@ RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 
 RUN /home/${USER}/.miniconda/bin/conda create --name gt -y \
 	-c conda-forge \ 
+	python=3.10 \
 	graph-tool 
 
 RUN /home/${USER}/.miniconda/envs/gt/bin/pip install \
