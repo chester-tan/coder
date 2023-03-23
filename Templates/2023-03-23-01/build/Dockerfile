@@ -27,24 +27,21 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash /home/${USER}/.miniconda.sh -b -p /home/${USER}/.miniconda
 RUN /home/${USER}/.miniconda/bin/conda init
 
-RUN /home/${USER}/.miniconda/bin/conda create --name default -y \
+RUN /home/${USER}/.miniconda/bin/conda create --name pyg -y \
 	-c rapidsai \
 	-c conda-forge \ 
-	-c pytorch \
 	-c nvidia \
 	python=3.10 \
 	cuda cudatoolkit=11.8 \
-	pytorch torchvision torchaudio pytorch-cuda=11.8 \
-	rapids=23.02 \
-	graph-tool
+	rapids=23.02 
 
-# RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
-# 	torch \
-# 	torchvision \
-# 	torchaudio \
-# 	--index-url https://download.pytorch.org/whl/cu118
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+	torch \
+	torchvision \
+	torchaudio \
+	--index-url https://download.pytorch.org/whl/cu118
 
-RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	torch_geometric \
 	pyg_lib \
 	torch_scatter \
@@ -53,11 +50,26 @@ RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
 	torch_spline_conv \
 	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 
-RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	captum \
 	torchdyn
 
-RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+	pathpy \
+	networkx \
+	igraph \
+	jupyter \
+	scipy \
+	numpy \
+	pandas \
+	matplotlib \
+	seaborn
+
+RUN /home/${USER}/.miniconda/bin/conda create --name gt -y \
+	-c conda-forge \ 
+	graph-tool 
+
+RUN /home/${USER}/.miniconda/envs/gt/bin/pip install \
 	pathpy \
 	networkx \
 	igraph \
