@@ -30,18 +30,19 @@ RUN /home/${USER}/.miniconda/bin/conda init
 RUN /home/${USER}/.miniconda/bin/conda create --name default -y \
 	-c rapidsai \
 	-c conda-forge \ 
+	-c pytorch \
 	-c nvidia \
 	python=3.10 \
-	cuda \
-	cudatoolkit=11.8 \
+	cuda cudatoolkit=11.8 \
+	pytorch torchvision torchaudio pytorch-cuda=11.8 \
 	rapids=23.02 \
 	graph-tool
 
-RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
-	torch \
-	torchvision \
-	torchaudio \
-	--index-url https://download.pytorch.org/whl/cu118
+# RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
+# 	torch \
+# 	torchvision \
+# 	torchaudio \
+# 	--index-url https://download.pytorch.org/whl/cu118
 
 RUN /home/${USER}/.miniconda/envs/default/bin/pip install \
 	torch_geometric \
