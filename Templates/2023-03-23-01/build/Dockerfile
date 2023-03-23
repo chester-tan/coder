@@ -31,9 +31,9 @@ RUN /home/${USER}/.miniconda/bin/conda create --name pyg -y \
 	-c rapidsai \
 	-c conda-forge \ 
 	-c nvidia \
-	python=3.10 \
 	cuda=11.8 \
 	cudatoolkit=11.8 \
+	python=3.10 \
 	rapids=23.02 
 
 RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
