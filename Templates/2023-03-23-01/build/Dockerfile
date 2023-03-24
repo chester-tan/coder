@@ -27,6 +27,22 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN bash /home/${USER}/.miniconda.sh -b -p /home/${USER}/.miniconda
 RUN /home/${USER}/.miniconda/bin/conda init
 
+RUN /home/${USER}/.miniconda/bin/conda create --name gt -y \
+	-c conda-forge \ 
+	python=3.10 \
+	graph-tool 
+
+RUN /home/${USER}/.miniconda/envs/gt/bin/pip install \
+	pathpy \
+	networkx \
+	igraph \
+	jupyter \
+	scipy \
+	numpy \
+	pandas \
+	matplotlib \
+	seaborn
+
 RUN /home/${USER}/.miniconda/bin/conda create --name pyg -y \
 	-c rapidsai \
 	-c conda-forge \ 
@@ -56,22 +72,6 @@ RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	torchdyn
 
 RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
-	pathpy \
-	networkx \
-	igraph \
-	jupyter \
-	scipy \
-	numpy \
-	pandas \
-	matplotlib \
-	seaborn
-
-RUN /home/${USER}/.miniconda/bin/conda create --name gt -y \
-	-c conda-forge \ 
-	python=3.10 \
-	graph-tool 
-
-RUN /home/${USER}/.miniconda/envs/gt/bin/pip install \
 	pathpy \
 	networkx \
 	igraph \
