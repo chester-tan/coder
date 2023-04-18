@@ -8,18 +8,18 @@ if [ ! -d "$BACKUP_DIR" ]; then
 fi
 
 # Backup (and compress) each volume
-for volume_name in $(sudo docker volume ls --quiet); do
+for volume_name in $(docker volume ls --quiet); do
     echo "Backing up volume $volume_name ..."
-    sudo docker run --rm \
+    docker run --rm \
         -v "$volume_name":/source \
         -v "$BACKUP_DIR":/backup \
         alpine tar -czvf "/backup/$volume_name.tar.gz" -C /source .
 done
 
 # # Backup (without compressing) each volume
-# for volume_name in $(sudo docker volume ls --quiet); do
+# for volume_name in $(docker volume ls --quiet); do
 #     echo "Backing up volume $volume_name ..."
-#     sudo docker run --rm \
+#     docker run --rm \
 #         -v "$volume_name":/source \
 #         -v "$BACKUP_DIR":/backup \
 #         alpine tar -cvf "/backup/$volume_name.tar" -C /source .
