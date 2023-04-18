@@ -22,7 +22,7 @@ for volume_name in $(sudo docker volume ls --quiet); do
     sudo docker run --rm \
         -v "$volume_name":/source \
         -v "$BACKUP_DIR":/backup \
-        alpine cp -R /backup/$volume_name /source
+        alpine cp -R /backup /source
 done
 
 echo "All volumes backed up to $BACKUP_DIR"
