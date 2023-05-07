@@ -23,7 +23,7 @@ WORKDIR /home/${USER}
 
 RUN expect -c 'spawn bash -c "curl -fsSL https://install.julialang.org | sh"; expect "Proceed"; send -- "\r"; expect eof'
 
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/.miniconda.sh
+RUN sudo wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/.miniconda.sh
 RUN bash /home/${USER}/.miniconda.sh -b -p /home/${USER}/.miniconda
 RUN /home/${USER}/.miniconda/bin/conda init
 
