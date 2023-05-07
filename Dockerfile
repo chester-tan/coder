@@ -23,16 +23,16 @@ WORKDIR /home/${USER}
 
 RUN expect -c 'spawn bash -c "curl -fsSL https://install.julialang.org | sh"; expect "Proceed"; send -- "\r"; expect eof'
 
-RUN sudo wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/.miniconda.sh
-RUN sudo bash /home/${USER}/.miniconda.sh -b -p /home/${USER}/.miniconda
-RUN sudo /home/${USER}/.miniconda/bin/conda init
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /home/${USER}/.miniconda.sh
+RUN bash /home/${USER}/.miniconda.sh -b -p /home/${USER}/.miniconda
+RUN /home/${USER}/.miniconda/bin/conda init
 
-RUN sudo /home/${USER}/.miniconda/bin/conda create --name gt -y \
+RUN /home/${USER}/.miniconda/bin/conda create --name gt -y \
 	-c conda-forge \ 
 	python=3.10 \
 	graph-tool 
 
-RUN sudo /home/${USER}/.miniconda/envs/gt/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/gt/bin/pip install \
 	pathpy \
 	networkx \
 	igraph \
@@ -43,7 +43,7 @@ RUN sudo /home/${USER}/.miniconda/envs/gt/bin/pip install \
 	matplotlib \
 	seaborn
 
-RUN sudo /home/${USER}/.miniconda/bin/conda create --name pyg -y \
+RUN /home/${USER}/.miniconda/bin/conda create --name pyg -y \
 	-c rapidsai \
 	-c conda-forge \ 
 	-c nvidia \
@@ -52,13 +52,13 @@ RUN sudo /home/${USER}/.miniconda/bin/conda create --name pyg -y \
 	python=3.10 \
 	rapids=23.04 
 
-RUN sudo /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	torch \
 	torchvision \
 	torchaudio \
 	--index-url https://download.pytorch.org/whl/cu118
 
-RUN sudo /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	torch_geometric \
 	pyg_lib \
 	torch_scatter \
@@ -67,11 +67,11 @@ RUN sudo /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	torch_spline_conv \
 	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 
-RUN sudo /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	captum \
 	torchdyn
 
-RUN sudo /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	pathpy \
 	networkx \
 	igraph \
