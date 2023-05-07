@@ -50,7 +50,7 @@ RUN /home/${USER}/.miniconda/bin/conda create --name pyg -y \
 	cuda=11.8 \
 	cudatoolkit=11.8 \
 	python=3.10 \
-	rapids=23.02 
+	rapids=23.04 
 
 RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
 	torch \
