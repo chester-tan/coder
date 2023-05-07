@@ -1,15 +1,8 @@
 FROM ubuntu
 
-ARG USER=coder
-RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
-	&& echo "${USER} ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/${USER} \
-	&& chmod 0440 /etc/sudoers.d/${USER}
-USER ${USER}
-WORKDIR /home/${USER}
-
 ENV DEBIAN_FRONTEND=noninteractive
-RUN sudo apt-get update \
-	&& sudo apt-get install -y \
+RUN apt-get update \
+	&& apt-get install -y \
 	curl \
 	git \
 	sudo \
@@ -19,7 +12,14 @@ RUN sudo apt-get update \
 	zip \
 	expect \
 	libnuma-dev \
-	&& sudo rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
+
+ARG USER=coder
+RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
+	&& echo "${USER} ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/${USER} \
+	&& chmod 0440 /etc/sudoers.d/${USER}
+USER ${USER}
+WORKDIR /home/${USER}
 
 RUN expect -c 'spawn bash -c "curl -fsSL https://install.julialang.org | sh"; expect "Proceed"; send -- "\r"; expect eof'
 
