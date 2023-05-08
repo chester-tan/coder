@@ -22,6 +22,13 @@ RUN python3 -m pip install nvidia-pyindex
 RUN python3 -m pip install nvidia-cuda-runtime-cu11==11.8.89
 
 RUN python3 -m pip install \
+	cudf-cu11 \
+	cuml-cu11 \
+	cugraph-cu11 \
+	cucim \
+	--extra-index-url=https://pypi.nvidia.com
+
+RUN python3 -m pip install \
 	torch \
 	torchvision \
 	torchaudio \
