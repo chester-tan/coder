@@ -18,7 +18,7 @@ RUN apt-get update \
 
 RUN python3 -m pip install --upgrade setuptools pip wheel
 RUN python3 -m pip install nvidia-pyindex
-RUN python3 -m pip install nvidia-cuda-runtime-cu118
+RUN python3 -m pip install nvidia-cuda-runtime-cu11
 
 RUN python3 -m pip install \
 	torch \
