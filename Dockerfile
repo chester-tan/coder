@@ -1,8 +1,9 @@
-FROM nvcr.io/nvidia/rapidsai/rapidsai-core:23.04-cuda11.8-base-ubuntu22.04-py3.10
+FROM ubuntu
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
 	&& apt-get install -y \
+	python3 \
 	curl \
 	git \
 	sudo \
@@ -14,13 +15,23 @@ RUN apt-get update \
 	libnuma-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install \
+RUN python3 -m pip install --upgrade setuptools pip wheel
+RUN python3 -m pip install nvidia-pyindex
+RUN python3 -m pip install nvidia-cuda-runtime-cu118
+
+RUN python3 -m pip install \
 	torch \
 	torchvision \
 	torchaudio \
 	--index-url https://download.pytorch.org/whl/cu118
 
-RUN pip install \
+RUN python3 -m pip install \
+	torch \
+	torchvision \
+	torchaudio \
+	--index-url https://download.pytorch.org/whl/cu118
+
+RUN python3 -m pip install \
 	torch_geometric \
 	pyg_lib \
 	torch_scatter \
@@ -29,11 +40,11 @@ RUN pip install \
 	torch_spline_conv \
 	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 
-RUN pip install \
+RUN python3 -m pip install \
 	captum \
 	torchdyn
 
-RUN pip install \
+RUN python3 -m pip install \
 	pathpy \
 	networkx \
 	igraph \
