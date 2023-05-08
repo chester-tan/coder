@@ -33,7 +33,7 @@ RUN pip install \
 	captum \
 	torchdyn
 
-RUN /home/${USER}/.miniconda/envs/pyg/bin/pip install \
+RUN pip install \
 	pathpy \
 	networkx \
 	igraph \
