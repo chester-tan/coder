@@ -22,7 +22,6 @@ RUN python3 -m pip install --upgrade setuptools pip wheel
 RUN python3 -m pip install nvidia-pyindex
 RUN python3 -m pip install \ 
 	nvidia-cuda-runtime-cu11 \
-	nvidia-cuda-runtime-cu11 \
 	nvidia-cuda-cupti-cu11 \
 	nvidia-cuda-nvcc-cu11 \
 	nvidia-nvml-dev-cu11 \
