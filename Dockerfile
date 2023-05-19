@@ -49,9 +49,9 @@ RUN python3 -m pip install \
 	torch_spline_conv \
 	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 
-RUN python3 -m pip install \
-	captum \
-	torchdyn
+# RUN python3 -m pip install \
+# 	captum \
+# 	torchdyn
 
 RUN python3 -m pip install \
 	pathpy \
