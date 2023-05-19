@@ -1,25 +1,25 @@
 # FROM ubuntu
 FROM nvcr.io/nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 
-# ENV DEBIAN_FRONTEND=noninteractive
-# RUN apt-get update \
-# 	&& apt-get install -y \
-# 	python3 \
-# 	python3-pip \
-# 	python3-venv \
-# 	curl \
-# 	git \
-# 	sudo \
-# 	vim \
-# 	wget \
-# 	htop \
-# 	zip \
-# 	expect \
-# 	libnuma-dev \
-# 	&& rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+	&& apt-get install -y \
+	python3 \
+	python3-pip \
+	python3-venv \
+	curl \
+	git \
+	sudo \
+	vim \
+	wget \
+	htop \
+	zip \
+	expect \
+	libnuma-dev \
+	&& rm -rf /var/lib/apt/lists/*
 
-# RUN python3 -m pip install --upgrade setuptools pip wheel
-# RUN python3 -m pip install nvidia-pyindex
+RUN python3 -m pip install --upgrade setuptools pip wheel
+RUN python3 -m pip install nvidia-pyindex
 # RUN python3 -m pip install \ 
 # 	nvidia-cuda-runtime-cu11 \
 # 	nvidia-cuda-runtime-cu11 \
@@ -39,18 +39,18 @@ FROM nvcr.io/nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 # 	nvidia-nvjitlink-cu11 \
 # 	nvidia-cuda-opencl-cu11
 
-# RUN python3 -m pip install \
-# 	cudf-cu11 \
-# 	cuml-cu11 \
-# 	cugraph-cu11 \
-# 	cucim \
-# 	--extra-index-url=https://pypi.nvidia.com
+RUN python3 -m pip install \
+	cudf-cu11 \
+	cuml-cu11 \
+	cugraph-cu11 \
+	cucim \
+	--extra-index-url=https://pypi.nvidia.com
 
-# RUN python3 -m pip install \
-# 	torch \
-# 	torchvision \
-# 	torchaudio \
-# 	--index-url https://download.pytorch.org/whl/cu118
+RUN python3 -m pip install \
+	torch \
+	torchvision \
+	torchaudio \
+	--index-url https://download.pytorch.org/whl/cu118
 
 # RUN python3 -m pip install \
 # 	torch \
