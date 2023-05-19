@@ -20,24 +20,24 @@ RUN apt-get update \
 
 RUN python3 -m pip install --upgrade setuptools pip wheel
 RUN python3 -m pip install nvidia-pyindex
-# RUN python3 -m pip install \ 
-# 	nvidia-cuda-runtime-cu11 \
-# 	nvidia-cuda-runtime-cu11 \
-# 	nvidia-cuda-cupti-cu11 \
-# 	nvidia-cuda-nvcc-cu11 \
-# 	nvidia-nvml-dev-cu11 \
-# 	nvidia-cuda-nvrtc-cu11 \
-# 	nvidia-nvtx-cu11 \
-# 	nvidia-cuda-sanitizer-api-cu11 \
-# 	nvidia-cublas-cu11 \
-# 	nvidia-cufft-cu11 \
-# 	nvidia-curand-cu11 \
-# 	nvidia-cusolver-cu11 \
-# 	nvidia-cusparse-cu11 \
-# 	nvidia-npp-cu11 \
-# 	nvidia-nvjpeg-cu11 \
-# 	nvidia-nvjitlink-cu11 \
-# 	nvidia-cuda-opencl-cu11
+RUN python3 -m pip install \ 
+	nvidia-cuda-runtime-cu11 \
+	nvidia-cuda-runtime-cu11 \
+	nvidia-cuda-cupti-cu11 \
+	nvidia-cuda-nvcc-cu11 \
+	nvidia-nvml-dev-cu11 \
+	nvidia-cuda-nvrtc-cu11 \
+	nvidia-nvtx-cu11 \
+	nvidia-cuda-sanitizer-api-cu11 \
+	nvidia-cublas-cu11 \
+	nvidia-cufft-cu11 \
+	nvidia-curand-cu11 \
+	nvidia-cusolver-cu11 \
+	nvidia-cusparse-cu11 \
+	nvidia-npp-cu11 \
+	nvidia-nvjpeg-cu11 \
+	nvidia-nvjitlink-cu11 \
+	nvidia-cuda-opencl-cu11
 
 RUN python3 -m pip install \
 	cudf-cu11 \
