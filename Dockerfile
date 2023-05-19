@@ -28,38 +28,38 @@ RUN python3 -m pip install \
 	cucim \
 	--extra-index-url=https://pypi.nvidia.com
 
-RUN python3 -m pip install \
-	torch \
-	torchvision \
-	torchaudio \
-	--index-url https://download.pytorch.org/whl/cu118
+# RUN python3 -m pip install \
+# 	torch \
+# 	torchvision \
+# 	torchaudio \
+# 	--index-url https://download.pytorch.org/whl/cu118
 
-RUN python3 -m pip install \
-	torch \
-	torchvision \
-	torchaudio \
-	--index-url https://download.pytorch.org/whl/cu118
+# RUN python3 -m pip install \
+# 	torch \
+# 	torchvision \
+# 	torchaudio \
+# 	--index-url https://download.pytorch.org/whl/cu118
 
-RUN python3 -m pip install \
-	torch_geometric \
-	pyg_lib \
-	torch_scatter \
-	torch_sparse \ 
-	torch_cluster \
-	torch_spline_conv \
-	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
+# RUN python3 -m pip install \
+# 	torch_geometric \
+# 	pyg_lib \
+# 	torch_scatter \
+# 	torch_sparse \ 
+# 	torch_cluster \
+# 	torch_spline_conv \
+# 	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 
 # RUN python3 -m pip install \
 # 	captum \
 # 	torchdyn
 
-RUN python3 -m pip install \
-	pathpy \
-	networkx \
-	igraph \
-	jupyter \
-	scipy \
-	numpy \
-	pandas \
-	matplotlib \
-	seaborn
+# RUN python3 -m pip install \
+# 	pathpy \
+# 	networkx \
+# 	igraph \
+# 	jupyter \
+# 	scipy \
+# 	numpy \
+# 	pandas \
+# 	matplotlib \
+# 	seaborn
