@@ -1,11 +1,8 @@
-FROM ubuntu
+FROM nvcr.io/nvidia/pytorch:23.05-py3
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
 	&& apt-get install -y \
-	python3 \
-	python3-pip \
-	python3-venv \
 	curl \
 	git \
 	sudo \
@@ -14,47 +11,17 @@ RUN apt-get update \
 	htop \
 	zip \
 	expect \
-	libnuma-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --upgrade setuptools pip wheel
-RUN python3 -m pip install nvidia-pyindex
-# RUN python3 -m pip install nvidia-cuda-runtime-cu11==11.8.89
-RUN python3 -m pip install nvidia-cuda-runtime-cu12
-
-RUN python3 -m pip install \
-	cudf-cu11 \
-	cuml-cu11 \
-	cugraph-cu11 \
-	cucim \
-	--extra-index-url=https://pypi.nvidia.com
-
-RUN python3 -m pip install \
-	torch==2.0.0+cu118 \
-	torchvision==0.15.1+cu118 \
-	torchaudio==2.0.1 \
-	--index-url https://download.pytorch.org/whl/cu118
-
-RUN python3 -m pip install \
+RUN pip install \
 	torch_geometric \
-	pyg_lib \
-	torch_scatter \
-	torch_sparse \ 
-	torch_cluster \
-	torch_spline_conv \
-	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
-
-# RUN python3 -m pip install \
-# 	captum \
-# 	torchdyn
-
-# RUN python3 -m pip install \
-# 	pathpy \
-# 	networkx \
-# 	igraph \
-# 	jupyter \
-# 	scipy \
-# 	numpy \
-# 	pandas \
-# 	matplotlib \
-# 	seaborn
+	captum \
+	pathpy \
+	networkx \
+	igraph \
+	jupyter \
+	scipy \
+	numpy \
+	pandas \
+	matplotlib \
+	seaborn
