@@ -19,7 +19,8 @@ RUN apt-get update \
 
 RUN python3 -m pip install --upgrade setuptools pip wheel
 RUN python3 -m pip install nvidia-pyindex
-RUN python3 -m pip install nvidia-cuda-runtime-cu11==11.8.89
+# RUN python3 -m pip install nvidia-cuda-runtime-cu11==11.8.89
+RUN python3 -m pip install nvidia-cuda-runtime-cu12
 
 RUN python3 -m pip install \
 	cudf-cu11 \
@@ -29,15 +30,9 @@ RUN python3 -m pip install \
 	--extra-index-url=https://pypi.nvidia.com
 
 RUN python3 -m pip install \
-	torch \
-	torchvision \
-	torchaudio \
-	--index-url https://download.pytorch.org/whl/cu118
-
-RUN python3 -m pip install \
-	torch \
-	torchvision \
-	torchaudio \
+	torch==2.0.0+cu118 \
+	torchvision==0.15.1+cu118 \
+	torchaudio==2.0.1 \
 	--index-url https://download.pytorch.org/whl/cu118
 
 RUN python3 -m pip install \
@@ -49,17 +44,17 @@ RUN python3 -m pip install \
 	torch_spline_conv \
 	-f https://data.pyg.org/whl/torch-2.0.0+cu118.html
 
-RUN python3 -m pip install \
-	captum \
-	torchdyn
+# RUN python3 -m pip install \
+# 	captum \
+# 	torchdyn
 
-RUN python3 -m pip install \
-	pathpy \
-	networkx \
-	igraph \
-	jupyter \
-	scipy \
-	numpy \
-	pandas \
-	matplotlib \
-	seaborn
+# RUN python3 -m pip install \
+# 	pathpy \
+# 	networkx \
+# 	igraph \
+# 	jupyter \
+# 	scipy \
+# 	numpy \
+# 	pandas \
+# 	matplotlib \
+# 	seaborn
